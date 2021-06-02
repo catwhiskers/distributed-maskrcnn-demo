@@ -160,7 +160,7 @@ def main():
     # construct an optimizer
     params = [p for p in model.parameters() if p.requires_grad]
     #original 0.005 
-    optimizer = torch.optim.SGD(params, lr=0.01, 
+    optimizer = torch.optim.SGD(params, lr=0.005, 
                                 momentum=0.9, weight_decay=0.0005)
     # and a learning rate scheduler
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
@@ -184,7 +184,7 @@ def main():
 
 def save_model(model, model_dir):
     with open(os.path.join(model_dir, 'model.pth'), 'wb') as f:
-        torch.save(model.state_dict(), f)    
+        torch.save(model.state_dict(), f)
    
 if __name__ == "__main__":
     main()

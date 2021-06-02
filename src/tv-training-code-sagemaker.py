@@ -169,7 +169,7 @@ def main():
 
 def save_model(model, model_dir):
     with open(os.path.join(model_dir, 'model.pth'), 'wb') as f:
-        torch.save(model.module.state_dict(), f)    
+        torch.save(model.state_dict(), f)    
    
 if __name__ == "__main__":
     main()
